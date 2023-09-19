@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3030;
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -61,6 +61,6 @@ app.post("/submit", (req, res) => {
 });
 
 //listens to the previously defined port for incoming requests
-app.listen(port, () => {
-    console.log(`listening on port: ${port}`);
+app.listen(PORT, () => {
+    console.log(`listening on port: ${PORT}`);
 });
