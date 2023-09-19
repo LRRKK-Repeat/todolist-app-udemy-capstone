@@ -1,0 +1,25 @@
+<%- include("partials/header.ejs") %>
+<main id="home-main">
+    <article id="todo-list-container">
+        <h2>Home Todo List</h1>
+        <p id="todo-date-display">
+            <%= currDate = String(new Date()).slice(0, 15) %>
+        </p>
+        <div id="todo-item-container">
+            <% if (locals.homeTasks) { %>
+                <% for (var i=0; i<homeTasks.length; i++) { %>
+                    <div class="todo-item">
+                        <input type="checkbox">
+                        <p class="checked-box"><%= homeTasks[i] %></p>
+                    </div>
+                <% } %>
+            <% } %>
+        </div>
+        <form id="home-form" action="/submit" method="POST">
+            <p>New list item here:</p>
+            <input type="text" name="userInputHome" />
+            <input type="submit" name="submitted-form" />
+        </form>
+    </article>
+</main>
+<%- include("partials/footer.ejs") %>
